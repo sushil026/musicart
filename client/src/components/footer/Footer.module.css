@@ -1,0 +1,16 @@
+.body{
+  background: #2E0052;
+  min-width: 100%;
+  margin: 0;
+  color: white;
+  font-size: large;
+  letter-spacing: 0.02rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 0;
+}
+.middle{
+  width: fit-content;
+}
