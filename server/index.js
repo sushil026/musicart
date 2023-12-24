@@ -8,6 +8,10 @@ const authRoutes = require("./routes/auth.route");
 const productRoutes = require("./routes/product.route");
 const filterRoutes  = require('./routes/filter.route');
 
+// for sending data manually to the Database
+// const { insertProducts } = require('./controllers/productPost');
+// insertProducts();
+
 const app = express();
 const port = process.env.PORT;
 app.use(
@@ -19,6 +23,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
+
 
 mongoose
   .connect(process.env.MONGODB_URL)

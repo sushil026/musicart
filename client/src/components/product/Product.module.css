@@ -6,16 +6,19 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border: 2px solid rgb(160, 152, 152, 0.2);
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .list {
   height: 15rem;
   width: 85%;
-  align-self: center;
   justify-self: center;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .list:hover,
@@ -39,13 +42,14 @@
   padding-top: 0.7rem;
   background: #d4e5ff;
   justify-self: center;
-  width: 25rem;
-  height: fit-content;
+  width: 100%;
+  height: 15rem;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
-.addToCart{
+.addToCart {
   position: absolute;
   background: white;
   padding: 0.5rem;
@@ -55,9 +59,20 @@
   box-shadow: 0 0 1rem rgb(160, 152, 152);
 }
 
-.cover{
+.addToCart:hover{
+  scale: 1.1;
+}
+
+.grid .cover {
   width: 15rem;
   height: 15rem;
+  object-fit: contain;
+  mix-blend-mode: darken;
+}
+
+.list .cover {
+  width: 80%;
+  height: 80%;
   object-fit: contain;
   mix-blend-mode: darken;
 }
@@ -72,13 +87,14 @@
 }
 
 .list .data {
-  height: fit-content;
-  padding: 1rem 2rem;
+  align-self: center;
+  justify-self: center;
+  width: 90%;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
   font-size: 1.2rem;
-  height: 100%;
+  height: fit-content;
 }
 
 .name,
@@ -89,7 +105,7 @@
   margin: 0;
 }
 
-.list .name{
+.list .name {
   font-size: 1.6rem;
 }
 
@@ -104,21 +120,37 @@
 }
 
 @media only screen and (max-width: 1400px) {
-  .list{
+  .list {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 1024px) {
-  .cover{
+  .grid {
+    width: 90%;
+  }
+  .cover {
     width: 90%;
     height: 13rem;
   }
-  .list .image{
+  .list .image {
     width: 100%;
   }
-  .list .cover{
+  .list .cover {
     width: 90%;
     height: 15rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .grid {
+    width: 95%;
+  }
+
+  .name,
+  .price,
+  .color,
+  .type {
+    font-size: 1rem;
   }
 }

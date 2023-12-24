@@ -11,26 +11,30 @@ export default function Filters() {
   const {
     view,
     setView,
-    headphoneType,
-    company,
+    type,
+    brand,
     color,
-    price,
+    range,
     sort,
-    handleHeadphoneTypeChange,
-    handleCompanyChange,
+    handleTypeChange,
+    handleBrandChange,
     handleColorChange,
-    handlePriceChange,
+    handleRangeChange,
     handleSortChange,
   } = useFilterContext();
 
+  const [brandList, setBrandList] = useState([]);
+  const [typeList, setTypeList] = useState([]);
+  const [colorList, setColorList] = useState([]);
+
   useEffect(() => {
-    console.log("Effect is running 2");
     const fetchData = async () => {
       try {
         const response = await axios.get("filter");
-        // const data = await response.json();
-        console.log(response.data);
-        // setFilterData(data);
+        const data = await response.data;
+        setBrandList(data.brands);
+        setColorList(data.colors);
+        setTypeList(data.types);
       } catch (error) {
         console.error("Error fetching filter data:", error);
       }
@@ -50,29 +54,35 @@ export default function Filters() {
         <div className={filterStyle.selectContainer}>
           <div className={filterStyle.customSelect}>
             <select
-              id="headphoneType"
-              value={headphoneType}
-              onChange={handleHeadphoneTypeChange}
+              id="type"
+              value={type}
+              onChange={handleTypeChange}
             >
               <option value="" disabled>
                 Headphone Type &#x2304;
               </option>
-              <option value="over-ear">Over-Ear</option>
-              <option value="on-ear">On-Ear</option>
-              <option value="in-ear">In-Ear</option>
+              <option value="">Featured</option>
+              {typeList.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
             </select>
           </div>
         </div>
 
         <div className={filterStyle.selectContainer}>
           <div className={filterStyle.customSelect}>
-            <select id="company" value={company} onChange={handleCompanyChange}>
+            <select id="brand" value={brand} onChange={handleBrandChange}>
               <option value="" disabled>
                 Brand&#x2304;
               </option>
-              <option value="sony">Sony</option>
-              <option value="bose">Bose</option>
-              <option value="sennheiser">Sennheiser</option>
+              <option value="">Featured</option>
+              {brandList.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -83,23 +93,27 @@ export default function Filters() {
               <option value="" disabled>
                 Colour&#x2304;
               </option>
-              <option value="black">Black</option>
-              <option value="white">White</option>
-              <option value="red">Red</option>
+              <option value="">Featured</option>
+              {colorList.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
             </select>
           </div>
         </div>
 
         <div className={filterStyle.selectContainer}>
           <div className={filterStyle.customSelect}>
-            <select id="price" value={price} onChange={handlePriceChange}>
-              <option value="" disabled>
+            <select id="range" value={range} onChange={handleRangeChange}>
+              <option value="x" disabled>
                 Price&#x2304;
               </option>
-              <option value="0-1000">&#8377;0 - &#8377;1000</option>
-              <option value="1000-10000">&#8377;1000 - &#8377;10000</option>
-              <option value="10000-20000">&#8377;10000 - &#8377;20000</option>
-              <option value="10000-20000"> &gt; &#8377;20000</option>
+              <option value="x">Featured</option>
+              <option value="a">&#8377;0 - &#8377;1000</option>
+              <option value="b">&#8377;1000 - &#8377;10000</option>
+              <option value="c">&#8377;10000 - &#8377;20000</option>
+              <option value="d"> &gt; &#8377;20000</option>
             </select>
           </div>
         </div>
@@ -111,10 +125,11 @@ export default function Filters() {
               <option value="" disabled>
                 Sort by:&#x2304;
               </option>
-              <option value="pl">Price Lowest</option>
-              <option value="ph">Price Highest</option>
-              <option value="nameAesc">Name (A-Z)</option>
-              <option value="nameDesc">Name (Z-A)</option>
+              <option value="">Featured</option>
+              <option value="price-aesc">Price - Lowest</option>
+              <option value="price-desc">Price - Highest</option>
+              <option value="A-to-Z">Name (A-Z)</option>
+              <option value="Z-to-A">Name (Z-A)</option>
             </select>
           </div>
         </div>
