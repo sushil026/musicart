@@ -18,7 +18,7 @@ const port = process.env.PORT;
 app.use(
   cors({
     credentials: true,
-    origin: "https://musicart-client.vercel.app/",
+    origin: "https://musicart-client.vercel.app",
     allowedHeaders: ["Content-Type", "Authorization", "other-header"],
   })
 );
