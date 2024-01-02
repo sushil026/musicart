@@ -20,7 +20,6 @@ export default function Product() {
   const [mainImageIndex, setMainImageIndex] = useState(0);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const navigate = useNavigate();
-console.log(id);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -166,10 +165,10 @@ console.log(id);
                   {productData?.brand}
                 </p>
               </div>
-              <button className={prod.submit} disabled={id === null} onClick={addToCart}>
+              <button className={prod.submit} disabled={id} onClick={addToCart}>
                 ADD TO CART
               </button>
-              <button className={prod.submit} disabled={id === null} onClick={placeOrder}>
+              <button className={prod.submit} disabled={id} onClick={placeOrder}>
                 PLACE ORDER
               </button>
             </div>
