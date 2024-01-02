@@ -46,18 +46,16 @@ export default function Filters() {
     <div className={filterStyle.filters}>
       <div className={filterStyle.left}>
         <div className={filterStyle.views} onClick={() => setView("grid")}>
-          {view === "grid" ? <img src={grid2} /> : <img src={grid} />}
+          <img src={view === "grid" ? grid2 : grid} alt="Grid View" />
         </div>
         <div className={filterStyle.views} onClick={() => setView("list")}>
-          {view === "list" ? <img src={list2} /> : <img src={list} />}
+          <img src={view === "list" ? list2 : list} alt="List View" />
         </div>
+
+        {/* Reusable Select Component */}
         <div className={filterStyle.selectContainer}>
           <div className={filterStyle.customSelect}>
-            <select
-              id="type"
-              value={type}
-              onChange={handleTypeChange}
-            >
+            <select id="type" value={type} onChange={handleTypeChange}>
               <option value="" disabled>
                 Headphone Type &#x2304;
               </option>
@@ -118,6 +116,8 @@ export default function Filters() {
           </div>
         </div>
       </div>
+
+      {/* Sorting Section */}
       <div className={filterStyle.right}>
         <div className={filterStyle.selectContainer}>
           <div className={filterStyle.customSelect}>

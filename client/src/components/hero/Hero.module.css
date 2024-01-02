@@ -1,15 +1,23 @@
 .body{
+  margin-top: 0.7rem;
   height: max-content;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+.logo h2{
+  margin: 0;
+  cursor: pointer;
+}
+
 .left{
   display: flex;
   align-items: center;
   gap: 2rem;
 }
+
 .logo{
   font-size: 1.5rem;
   display: flex;
@@ -17,13 +25,27 @@
   color: #2E0052;
   align-items: center;
 }
+
 .logo img{
   height: fit-content;
   width: fit-content;
 }
+
 .breadcrumbs{
   font-size: 1.4rem;
+  display: flex;
+  gap: 0.3rem;
 }
+
+.breadcrumbs p{
+  cursor: pointer;
+}
+
+.breadcrumbs p:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .cart{
   display: flex;
   align-items: center;

@@ -3,17 +3,18 @@ import Header from "../../components/header/Header";
 import home from "./Home.module.css";
 import Footer from "../../components/footer/Footer";
 import { UserContext } from "../../contexts/UserContext";
+import { useFilterContext } from "../../contexts/FilterContext";
 import Hero from "../../components/hero/Hero";
 import Banner from "../../components/banner/Banner";
 import ItemContainer from "../../components/itemContainer/ItemContainer";
 import Filters from "../../components/filters/Filters";
-import { useFilterContext } from "../../contexts/FilterContext";
+import searchIcon from "../../assets/search.svg";
+import MobileFooter from "../../components/mobileFooter/MobileFooter";
 
 export default function Home() {
-  const { id } = useContext(UserContext);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [searchQuery, setSearchQuery] = useState("");
-  const { search, setSearch } = useFilterContext();
+  const { setSearch } = useFilterContext();
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,30 +25,44 @@ export default function Home() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  
-  // console.log(search);
+
   function setSearchFilter() {
     setSearch(searchQuery);
   }
 
+  function onENTER(event) {
+    if (event.key === "Enter") {
+      setSearch(searchQuery);
+    }
+  }
+
   return (
-    <div>
+    <div className={home.body}>
       {screenWidth > 786 && <Header />}
-      <div className={home.body}>
-        {screenWidth > 786 && <Hero />}
+      <div className={home.container}>
+        {screenWidth > 786 && <Hero from={""}/>}
         <Banner />
         <div className={home.searchBar}>
           <input
             type="text"
-            placeholder="Search"
+            placeholder={
+              screenWidth > 768 ? "Press 'Enter' to search" : "Search"
+            }
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
-            onBlur={(event) => setSearchFilter()}
+            onKeyDown={onENTER}
+          />
+          <img
+            src={searchIcon}
+            alt=""
+            className={home.icon}
+            onClick={() => setSearchFilter()}
           />
         </div>
         <Filters />
         <ItemContainer />
       </div>
+      {screenWidth < 786 && <MobileFooter from={"home"}/>}
       {screenWidth > 786 && <Footer />}
     </div>
   );

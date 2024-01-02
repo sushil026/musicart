@@ -1,0 +1,32 @@
+.body{
+  position: fixed;
+  background: rgb(240, 240, 240);
+  width: 100%;
+  height: fit-content;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid rgb(160, 152, 152, 0.5);
+}
+
+.tabs{
+  height: fit-content;
+  padding: 0.2rem 0;
+  width: 60%;
+  justify-self: center;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #2E0052;
+  position: relative;
+}
+
+.active{
+  border-top: 3px solid #2E0052;
+}
+
+.tabs p{
+  margin: 0;
+  font-size: 1rem;
+}

@@ -1,12 +1,10 @@
 import React from "react";
 import container from "./ItemContainer.module.css";
 import { useFilterContext } from "../../contexts/FilterContext";
-import Product from "../product/Product";
+import Card from "../card/Card";
 
 export default function ItemContainer() {
   const { view, filteredData } = useFilterContext();
-  console.log(filteredData);
-  console.log(typeof(filteredData));
 
   const containerClass =
     view === "grid" ? container.gridContainer : container.flexContainer;
@@ -14,7 +12,7 @@ export default function ItemContainer() {
     <div className={container.body}>
       <div className={`${containerClass}`}>
         {filteredData.map((product, index) => (
-          <Product 
+          <Card 
           key={index}
           prod_id={product.id}
           name={product.name}

@@ -11,8 +11,6 @@ const getDistinctValues = async (req, res) => {
       types: types,
     });
   } catch (error) {
-    // Handle errors
-    console.error("Error fetching distinct values:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };

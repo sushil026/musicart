@@ -7,6 +7,7 @@ require("dotenv").config();
 const authRoutes = require("./routes/auth.route");
 const productRoutes = require("./routes/product.route");
 const filterRoutes  = require('./routes/filter.route');
+const cartRoutes  = require('./routes/cart.route');
 
 // for sending data manually to the Database
 // const { insertProducts } = require('./controllers/productPost');
@@ -41,6 +42,7 @@ app.get("/health", (req, res) => {
 app.use("/api", authRoutes);
 app.use("/api", productRoutes);
 app.use("/api", filterRoutes);
+app.use("/api", cartRoutes);
 
 app.listen(port, () => {
   console.log(`Server up at http://localhost:${port}`);

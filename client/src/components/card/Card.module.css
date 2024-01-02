@@ -59,7 +59,7 @@
   box-shadow: 0 0 1rem rgb(160, 152, 152);
 }
 
-.addToCart:hover{
+.addToCart:hover {
   scale: 1.1;
 }
 
@@ -131,7 +131,7 @@
   }
   .cover {
     width: 90%;
-    height: 13rem;
+    height: 10rem;
   }
   .list .image {
     width: 100%;
@@ -144,13 +144,31 @@
 
 @media only screen and (max-width: 480px) {
   .grid {
-    width: 95%;
+    height: 15rem;
+    justify-content: space-around;
+  }
+
+  .grid .image {
+    height: 65%;
+    width: 100%;
+  }
+
+  .grid .data {
+    padding: 0rem 1.7rem;
+    gap: 0;
+    height: fit-content;
+  }
+
+  .grid .image .cover {
+    height: 96%;
+    width: 96%;
   }
 
   .name,
   .price,
   .color,
   .type {
-    font-size: 1rem;
+    font-weight: normal;
+    font-size: 0.9rem;
   }
 }

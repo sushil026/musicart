@@ -1,0 +1,298 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  background: #f0f0f0;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  height: fit-content;
+}
+
+.logo {
+  background: #2e0052;
+  color: white;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 4rem;
+  padding: 0.4rem 0;
+}
+
+.logo img {
+  width: 3rem;
+  height: 2.5;
+  padding-left: 1rem;
+}
+
+.container {
+  width: 85%;
+  height: fit-content;
+  margin-bottom: 2rem;
+}
+
+.content {
+  width: 100%;
+  height: fit-content;
+  padding-top: 4rem;
+  margin-bottom: 4rem;
+  display: grid;
+  justify-content: center;
+  grid-template-rows: auto auto;
+  position: relative;
+}
+
+.description {
+  height: 100%;
+  width: 90%;
+  place-self: center;
+}
+
+.description h2 {
+  letter-spacing: 0.04rem;
+}
+
+.details {
+  width: 100%;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.images {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  overflow: hidden;
+  place-content: center;
+}
+
+.imagePane {
+  display: none;
+}
+
+.main {
+  grid-area: 1/ 1/ 2/ 3;
+  display: grid;
+}
+
+.other {
+  grid-area: 2/3/-2/-1;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.4rem;
+}
+
+.img {
+  cursor: pointer;
+  border: 3px solid #2e0052;
+  place-self: center;
+  background: white;
+  border-radius: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 5%;
+}
+
+.main .img {
+  height: 30rem;
+  width: 35rem;
+}
+
+.other .img {
+  height: 10rem;
+  width: 10rem;
+}
+
+.texts {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.data{
+  height: fit-content;
+  margin: 2.5% 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.data h2{
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.data p{
+  margin: 0;
+  font-size: x-large;
+}
+
+.desc{
+  display: none;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.reviews{
+  display: flex;
+  gap: 0.3rem;
+}
+
+.featureBox{
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.02rem;
+}
+
+ul{
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.customRadio {
+  appearance: none;
+  padding: 5px;
+  border: 2px solid silver;
+  border-radius: 50%;
+}
+.customRadio:checked {
+  border: none;
+  background-color: #2e0052;
+  scale: 1.5;
+}
+
+.backToHome {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  background: #2e0052;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.backToHome2 {
+  display: none;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: silver;
+  padding: 0.4rem 0.6rem;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 40%;
+  border: none;
+  box-shadow: 0 0 0 2px rgb(169, 169, 169);
+}
+
+.submit {
+  align-self: center;
+  background: #ffd600;
+  width: 80%;
+  font-size: medium;
+  font-weight: bold;
+  border: none;
+  padding: 1rem;
+  box-shadow: 0 0 1px rgb(0, 0, 0, 0.5);
+  border-radius: 0.6rem;
+  letter-spacing: 0.04rem;
+}
+.submit:hover {
+  scale: 1.05;
+}
+
+@media only screen and (max-width: 1370px) {
+  .details {
+    display: flex;
+    flex-direction: column;
+  }
+  .images {
+    width: 100%;
+  }
+
+  .texts {
+    height: 100%;
+    width: 100%;
+  }
+
+  .data{
+    width: 100%;
+  }
+
+  .main .img {
+    height: 30rem;
+    width: 35rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .logo {
+    display: flex;
+  }
+  .description {
+    display: none;
+  }
+  .desc{
+    display: block;
+  }
+  .images {
+    display: none;
+  }
+  .imagePane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .data h2{
+    font-size: 1.6rem;
+  }
+  .data p{
+    margin: 0;
+    font-size: large;
+  }
+  .cover {
+    border: 3px solid #2e0052;
+    background: white;
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2%;
+    overflow: hidden;
+  }
+
+  .cover img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .backToHome {
+    display: none;
+  }
+  .backToHome2 {
+    display: flex;
+  }
+}

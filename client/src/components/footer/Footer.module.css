@@ -8,9 +8,10 @@
   font-weight: bold;
   display: flex;
   justify-content: center;
-  position: relative;
+  position: absolute;
   bottom: 0;
 }
+
 .middle{
   width: fit-content;
 }

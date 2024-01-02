@@ -1,0 +1,294 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  background: #f0f0f0;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+.container {
+  width: 80%;
+  height: 100%;
+  margin-bottom: 2rem;
+}
+
+.content {
+  width: 100%;
+  height: fit-content;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.backToHome {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  background: #2e0052;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.backToHome2 {
+  display: none;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: silver;
+  padding: 0.4rem 0.6rem;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 40%;
+  border: none;
+  box-shadow: 0 0 0 2px rgb(169, 169, 169);
+}
+
+.backToHome:hover {
+  scale: 1.05;
+}
+
+.head {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.head h1 {
+  margin: 0;
+}
+
+.logo {
+  background: #2e0052;
+  color: white;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 4rem;
+  padding: 0.2rem 0;
+}
+
+.logo img {
+  width: 3rem;
+  height: 2.5;
+  padding-left: 1rem;
+}
+
+.details {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 3.5fr 2fr;
+}
+
+.checkout_info {
+  place-self: center;
+  height: fit-content;
+  width: 90%;
+}
+
+.parts {
+  height: fit-content;
+  border-bottom: 3px solid silver;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+}
+
+.parts p {
+  margin: 0;
+}
+
+.itemReview {
+  width: 100%;
+  height: 20rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: #797979;
+}
+
+.cover {
+  width: 12rem;
+  height: 12rem;
+  border: 2px solid #2e0052;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cover img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.checkout_summary {
+  border: 3px solid silver;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 5%;
+  border-radius: 2rem;
+  width: 70%;
+  justify-self: center;
+}
+
+.checkout_summary p {
+  margin: 0;
+}
+
+.line {
+  background: silver;
+  height: 3px;
+  width: 95%;
+}
+
+.innerDivs {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  color: #797979;
+  font-size: large;
+  font-weight: 600;
+  padding: 0.25rem 0;
+}
+
+.totalDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  color: #b52b00;
+  font-size: large;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.submit {
+  align-self: center;
+  background: #ffd600;
+  width: 80%;
+  font-size: medium;
+  font-weight: bold;
+  border: none;
+  padding: 1rem;
+  box-shadow: 0 0 1px rgb(0, 0, 0, 0.5);
+  border-radius: 0.6rem;
+  letter-spacing: 0.04rem;
+}
+
+.submit:hover {
+  scale: 1.05;
+}
+
+@media only screen and (max-width: 1300px) {
+  .container {
+    width: 90%;
+    align-items: center;
+  }
+
+  .details {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkout_summary {
+    margin: 1rem 0;
+    width: 80%;
+    place-self: center;
+    padding: 2%;
+  }
+
+  .itemReview {
+    padding: 1rem 0;
+    width: 100%;
+  }
+
+  .innerDivs {
+    font-size: medium;
+    font-weight: 600;
+    padding: 0.25rem 0;
+  }
+
+  .totalDiv {
+    font-size: large;
+  }
+}
+
+@media only screen and (max-width: 786px) {
+  .container {
+    width: 100%;
+  }
+
+  .logo {
+    display: flex;
+  }
+
+  .submit {
+    padding: 0.5rem;
+  }
+
+  .backToHome {
+    display: none;
+  }
+
+  .backToHome2 {
+    display: block;
+  }
+
+  .details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .parts {
+    height: fit-content;
+    border-bottom: 2px solid silver;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .parts div {
+    width: 80%;
+  }
+
+  .checkout_summary {
+    margin: 1rem 0;
+    width: 80%;
+    place-self: center;
+    padding: 2%;
+  }
+
+  .itemReview {
+    padding: 1rem 0;
+    width: 100%;
+  }
+
+  .innerDivs {
+    font-size: medium;
+    font-weight: 600;
+    padding: 0.25rem 0;
+  }
+
+  .totalDiv {
+    font-size: large;
+  }
+}

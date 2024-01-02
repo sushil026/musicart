@@ -3,7 +3,6 @@ const Product = require("../models/Product.model");
 const getProducts = async (req, res) => {
   try {
     const { type, color, brand, from, to, sort, search } = req.query;
-
     const query = {};
     if (type) query.type = type;
     if (color) query.color = color;
@@ -62,4 +61,36 @@ const getProducts = async (req, res) => {
   }
 };
 
-module.exports = { getProducts };
+const getProductById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    if (!product) {
+      return res.status(200).json({ message: "Not Found" });
+    }
+    res.status(200).json({ product });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getProductForCart = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    if (!product) {
+      return res.status(200).json({ message: "Not Found" });
+    }
+    const data = {
+      name: product.name,
+      color: product.color,
+      price: product.price,
+      cover: product.images[0]
+    };
+    res.status(200).json({ data });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+module.exports = { getProducts, getProductById, getProductForCart };

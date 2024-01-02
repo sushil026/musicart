@@ -51,5 +51,6 @@
   .customSelect select {
     border-radius: 1rem;
     padding: 0.4rem;
+    font-size: 1rem;
   }
 }

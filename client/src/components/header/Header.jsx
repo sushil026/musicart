@@ -11,7 +11,7 @@ export default function Header() {
   async function logout() {
     axios.post("logout");
     setId(null);
-    console.log("logout");
+    localStorage.clear();
     nav("/")
   }
 
