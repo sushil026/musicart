@@ -11,7 +11,7 @@ import Cart from "./pages/cart/Cart";
 import CheckOut from "./pages/checkout/Checkout";
 import Success from './pages/success/Success'
 
-axios.defaults.baseURL = "http://localhost:4000/api";
+axios.defaults.baseURL = "https://musicart-server.vercel.app/api";
 axios.defaults.withCredentials = true;
 
 function App() {
