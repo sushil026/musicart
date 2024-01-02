@@ -163,12 +163,12 @@ export default function Product() {
                 <p>
                   <b>Brand: </b>
                   {productData?.brand}
-                </p>
+                </p>                
               </div>
-              <button className={prod.submit} disabled={id} onClick={addToCart}>
+              <button className={prod.submit} disabled={!id} onClick={addToCart}>
                 ADD TO CART
               </button>
-              <button className={prod.submit} disabled={id} onClick={placeOrder}>
+              <button className={prod.submit} disabled={!id} onClick={placeOrder}>
                 PLACE ORDER
               </button>
             </div>
