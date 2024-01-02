@@ -20,7 +20,7 @@ export default function Product() {
   const [mainImageIndex, setMainImageIndex] = useState(0);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const navigate = useNavigate();
-
+console.log(id);
   useEffect(() => {
     const fetchData = async () => {
       try {
