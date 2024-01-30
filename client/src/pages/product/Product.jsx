@@ -31,7 +31,6 @@ export default function Product() {
         console.error("Error fetching product data:", error);
       }
     };
-
     if (prod_id) {
       fetchData();
     }
@@ -67,7 +66,7 @@ export default function Product() {
   async function addToCart() {
     const prd_price = productData.price;
     const prd_id = productData._id;
-    axios.post("addToCart", { id, prod_id: prd_id, prod_price: prd_price });
+    axios.post("addToCart", { id, prod_id: prd_id, price: prd_price });
   }
 
   function placeOrder() {
