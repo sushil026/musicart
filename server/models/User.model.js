@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cart_quantity: {
+    type: Number,
+    default: 0, 
+  },
   cart: [
     {
       productId: {
@@ -35,6 +39,11 @@ const userSchema = new mongoose.Schema({
       },
     },
   ],
+});
+
+userSchema.pre("save", function (next) {
+  this.cart.reduce((total, item) => total + item.quantity, 0);
+  next();
 });
 
 const User = mongoose.model("User", userSchema);

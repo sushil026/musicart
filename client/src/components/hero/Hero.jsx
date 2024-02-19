@@ -6,7 +6,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Hero({ from }) {
-  const { id } = useContext(UserContext);
+  const { id, cart_quantity } = useContext(UserContext);
   const navigate = useNavigate();
   const handleCartClick = () => {
     navigate(`/cart/${id}`);
@@ -29,7 +29,7 @@ export default function Hero({ from }) {
         <div className={hero.right}>
           <div className={hero.cart} onClick={handleCartClick}>
             <img src={cart} alt="cart" />
-            <p>View Cart</p>
+            <p>View Cart ({cart_quantity})</p>
           </div>
         </div>
       )}

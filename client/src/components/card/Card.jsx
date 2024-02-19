@@ -16,9 +16,10 @@ export default function Card({
   type,
 }) {
   const { view } = useFilterContext();
-  const { id } = useContext(UserContext);
+  const { id, setQuantity } = useContext(UserContext);
   const navigate = useNavigate();
   async function addToCart() {
+    setQuantity((prev)=>prev+1);
     axios.post("addToCart", { id, prod_id, price });
   }
 
