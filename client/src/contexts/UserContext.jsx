@@ -11,6 +11,7 @@ export function UserContextProvider({ children }) {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get("profile");
+        console.log(response)
         setId(response.data.userId);
         // setQuantity(response.data.cart_quantity)
       } catch (error) {
