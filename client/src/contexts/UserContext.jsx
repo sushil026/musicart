@@ -12,7 +12,7 @@ export function UserContextProvider({ children }) {
       try {
         const response = await axios.get("profile");
         setId(response.data.userId);
-        setQuantity(response.data.cart_quantity)
+        // setQuantity(response.data.cart_quantity)
       } catch (error) {
         console.error("Error fetching user profile:", error);
       }
